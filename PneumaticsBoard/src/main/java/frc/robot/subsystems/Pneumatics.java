@@ -23,6 +23,10 @@ public class Pneumatics extends SubsystemBase {
     piston.set(DoubleSolenoid.Value.kReverse);
   }  
 
+  public void toggle(){
+    piston.toggle();
+  }
+
   public DoubleSolenoid getDoubleSolenoid(){
     return piston;
   }

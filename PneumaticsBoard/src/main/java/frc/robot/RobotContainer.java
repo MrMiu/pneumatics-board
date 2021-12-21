@@ -49,4 +49,8 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return command;
   }
+
+  public Command getPneuCommand() {
+    return command;
+  }
 }
