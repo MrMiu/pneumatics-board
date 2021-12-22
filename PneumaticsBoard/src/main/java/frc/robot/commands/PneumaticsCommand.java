@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Pneumatics;
+import edu.wpi.first.wpilibj.Compressor;
 
 
 public class PneumaticsCommand extends CommandBase {
@@ -35,7 +36,11 @@ public class PneumaticsCommand extends CommandBase {
     } else if(joy.getRawButton(Constants.joyB)){
       pneu.reverse();
     } else if(joy.getRawButton(Constants.joyX)){
-      penu.toggle();
+      pneu.getCompressor().start();
+    } else if(joy.getRawButton(Constants.joyY)){
+      pneu.getCompressor().stop();
+    } else{
+      pneu.off();
     }
   }
 

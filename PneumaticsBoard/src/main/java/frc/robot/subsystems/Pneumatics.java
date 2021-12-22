@@ -6,13 +6,17 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.Compressor;
 
 public class Pneumatics extends SubsystemBase {
 
   public DoubleSolenoid piston;
+  public Compressor compressor;
   /** Creates a new Pneumatics. */
-  public Pneumatics(DoubleSolenoid piston) {
+  public Pneumatics(DoubleSolenoid piston, Compressor compressor) {
     this.piston = piston;
+    this.compressor = compressor;
+
   }
 
   public void forward(){
@@ -21,14 +25,22 @@ public class Pneumatics extends SubsystemBase {
 
   public void reverse(){
     piston.set(DoubleSolenoid.Value.kReverse);
-  }  
+  }
 
   public void toggle(){
     piston.toggle();
   }
 
+  public void off(){
+    piston.set(DoubleSolenoid.Value.kOff);
+  }
+
   public DoubleSolenoid getDoubleSolenoid(){
     return piston;
+  }
+
+  public Compressor getCompressor(){
+    return compressor;
   }
 
   @Override
