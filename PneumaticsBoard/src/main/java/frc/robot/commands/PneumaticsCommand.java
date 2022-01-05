@@ -35,7 +35,9 @@ public class PneumaticsCommand extends CommandBase {
     } else if(joy.getRawButton(Constants.joyB)){
       pneu.reverse();
     } else if(joy.getRawButton(Constants.joyX)){
-      penu.toggle();
+      pneu.setSingle(true);
+    } else if(joy.getRawButton(Constants.joyY)){
+      pneu.setSingle(false);
     }
   }
 

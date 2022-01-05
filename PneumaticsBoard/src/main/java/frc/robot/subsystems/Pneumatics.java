@@ -10,9 +10,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Pneumatics extends SubsystemBase {
 
   public DoubleSolenoid piston;
+  public Solenoid single;
   /** Creates a new Pneumatics. */
-  public Pneumatics(DoubleSolenoid piston) {
+  public Pneumatics(DoubleSolenoid piston, Solenoid single) {
     this.piston = piston;
+    this.single = single;
   }
 
   public void forward(){
@@ -23,8 +25,12 @@ public class Pneumatics extends SubsystemBase {
     piston.set(DoubleSolenoid.Value.kReverse);
   }  
 
-  public void toggle(){
-    piston.toggle();
+  public void setSingle(boolean value){
+    single.set(value);
+  }
+
+  public Solenoid getSolenoid(){
+    return single;
   }
 
   public DoubleSolenoid getDoubleSolenoid(){

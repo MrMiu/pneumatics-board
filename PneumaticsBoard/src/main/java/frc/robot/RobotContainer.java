@@ -22,7 +22,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Joystick joy = new Joystick(0);
 
-  private final Pneumatics pneu = new Pneumatics(new DoubleSolenoid(0, 1));
+  private final Pneumatics pneu = new Pneumatics(new DoubleSolenoid(0, 1), new Solenoid(2));
 
   private final PneumaticsCommand command = new PneumaticsCommand(pneu, joy);
 
